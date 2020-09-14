@@ -28,17 +28,17 @@ This dataset includes the variables:
 
 # Section 2
 I can take the mean of the sample, too!
-The mean is `r mean(penguins)`.
+The mean is `mean(penguins[["flipper_length_mm"]])`.
 
 The code chunk below creates a data frame and generates a plot.
 
 ```{r plot_example}
 library(tidyverse)
 
-plot_df = tibble(
-  x = bill_length_mm,
-  y = flipper_length_mm
-)
+ggplot(
+  data = penguins,
+       aes(x = bill_length_mm, 
+           y = flipper_length_mm, 
+           color = species))+geom_point()
 
-ggplot(plot_df, aes(x = x, y = y, color = species))+geom_point()
 ```
