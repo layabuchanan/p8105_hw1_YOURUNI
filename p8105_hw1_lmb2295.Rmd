@@ -16,15 +16,15 @@ data("penguins", package = "palmerpenguins")
 ```
 
 This dataset includes the variables:
-----
-*Species
-*Island
-*Bill Length
-*Bill Depth
-*Flipper Length
-*Body Mass
-*Sex
-*Year
+--------
+*   Species
+*   Island
+*   Bill Length
+*   Bill Depth
+*   Flipper Length
+*   Body Mass
+*   Sex
+*   Year
 
 # Section 2
 I can take the mean of the sample, too!
