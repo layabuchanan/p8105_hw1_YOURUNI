@@ -27,7 +27,6 @@ This dataset includes the variables:
 *Year
 
 # Section 2
-l
 I can take the mean of the sample, too!
 The mean is `r mean(penguins)`.
 
@@ -37,9 +36,9 @@ The code chunk below creates a data frame and generates a plot.
 library(tidyverse)
 
 plot_df = tibble(
-  x = rnorm(500, mean = 2, sd = 4),
-  y = 3-4.2 * x +rnorm(500)
+  x = bill_length_mm,
+  y = flipper_length_mm
 )
 
-ggplot(plot_df, aes(x = x, y = y))+geom_point()
+ggplot(plot_df, aes(x = x, y = y, color = species))+geom_point()
 ```
