@@ -30,14 +30,17 @@ This dataset includes the variables:
 I can take the mean of the sample, too!
 The mean is `mean(penguins[["flipper_length_mm"]])`.
 
-The code chunk below generates a plot comparing the bill and flipper lengths of the penguins in the dataset, then, it saves the plot as a pdf file.
+The code chunk below generates a plot comparing the bill and flipper lengths of the penguins in the dataset color coded by species, then, it saves the plot as a pdf file.
 
 ```{r plot_example}
-ggplot(
-  data = penguins,
+library(tidyverse
+        )
+ggplot(data = penguins,
        aes(x = bill_length_mm, 
            y = flipper_length_mm, 
-           color = species))+geom_point()
+           color = species))+geom_point(
+             
+           )
 
 
 ggsave("penguin_plot.pdf")
