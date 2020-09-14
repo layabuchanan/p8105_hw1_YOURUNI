@@ -1,0 +1,45 @@
+---
+title: "Simple document"
+author: "Laya Buchanan"
+date: 2020-09-11
+output: github_document
+---
+
+This is my submission for the first homework assignment for P8105. 
+
+# Problem 2
+
+The following code loads the _"penguins"_ dataset. 
+
+```{r}
+data("penguins", package = "palmerpenguins")
+```
+
+This dataset includes the variables:
+----
+*Species
+*Island
+*Bill Length
+*Bill Depth
+*Flipper Length
+*Body Mass
+*Sex
+*Year
+
+# Section 2
+l
+I can take the mean of the sample, too!
+The mean is `r mean(penguins)`.
+
+The code chunk below creates a data frame and generates a plot.
+
+```{r plot_example}
+library(tidyverse)
+
+plot_df = tibble(
+  x = rnorm(500, mean = 2, sd = 4),
+  y = 3-4.2 * x +rnorm(500)
+)
+
+ggplot(plot_df, aes(x = x, y = y))+geom_point()
+```
