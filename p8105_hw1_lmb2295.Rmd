@@ -1,5 +1,5 @@
 ---
-title: "Exploring Penguin Data"
+title: "Homework 1"
 author: "Laya Buchanan"
 
 date: 2020-09-11
@@ -10,7 +10,7 @@ This is my submission for the first homework assignment for P8105.
 
 # Problem 2
 
-The following code loads the _"penguins"_ dataset. 
+The following code loads the _"penguins"_ dataset:
 
 ```{r}
 data("penguins", package = "palmerpenguins")
@@ -27,21 +27,30 @@ This dataset includes the variables:
 *   Sex
 *   Year
 
-I can take the mean of the sample, too!
-The mean is `mean(penguins flipper_length_mm)`.
+The penguin with the longest bill length is a Gentoo penguin from Biscoe with a bill length of 59.6mm.
+The mean bill length for all of the penguins in the dataset is `mean(penguins flipper_length_mm)`.
 
-The code chunk below generates a plot comparing the bill and flipper lengths of the penguins in the dataset color coded by species, then, it saves the plot as a pdf file.
 
-```{r plot_example}
+
+The code chunk below generates a plot comparing the bill and flipper lengths of the penguins in the dataset color coded by species:
+
+```{r message = FALSE, echo = FALSE}
 library(tidyverse
         )
+```
+
+```{r warning = FALSE, message = FALSE}
 ggplot(data = penguins,
        aes(x = bill_length_mm, 
            y = flipper_length_mm, 
            color = species))+geom_point(
              
            )
+```
 
+Finally, this code saves the plot as a PDF file:
+
+```{r warning = FALSE, message = FALSE}
 
 ggsave("penguin_plot.pdf")
 
