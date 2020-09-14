@@ -1,6 +1,7 @@
 ---
-title: "Simple document"
+title: "Exploring Penguin Data"
 author: "Laya Buchanan"
+
 date: 2020-09-11
 output: github_document
 ---
@@ -26,9 +27,8 @@ This dataset includes the variables:
 *   Sex
 *   Year
 
-# Section 2
 I can take the mean of the sample, too!
-The mean is `mean(penguins[["flipper_length_mm"]])`.
+The mean is `mean(penguins flipper_length_mm)`.
 
 The code chunk below generates a plot comparing the bill and flipper lengths of the penguins in the dataset color coded by species, then, it saves the plot as a pdf file.
 
