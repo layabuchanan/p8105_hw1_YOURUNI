@@ -13,7 +13,7 @@ This is my submission for the first homework assignment for P8105.
 The following code loads the _"penguins"_ dataset:
 
 ```{r}
-penguins
+data("penguins", package = "palmerpenguins")
 ```
 
 This dataset includes the variables:
