@@ -15,6 +15,8 @@ library(ggplot2)
 ```
 
 # Problem 1
+
+The code below creates a data frame comprised of a random sample of 10 from a standard normal distribution, a logical vector indicating whether elements of the sample are greater than 0, a character vector of length 10, and a a factor vector of length 10, with 3 different factor “levels.”
 ```{r dataframe creation}
 prob1_df = tibble(
   samp = rnorm(10),
@@ -24,18 +26,21 @@ prob1_df = tibble(
 )
 ```
 
-Take the mean of each variable in my data frame.
 
-```{r mean pull}
+This code takes the mean of each variable in my data frame.
+
+```{r warning = FALSE, message = FALSE}
 mean(pull(prob1_df, samp))
 mean(pull(prob1_df, samp_gt_0)) 
 mean(pull(prob1_df, char_vec))
 mean(pull(prob1_df, factor_vec))
 ```
 
-I can take the mean of numbers and logical but not character or factor.
+I can take the mean of numeric and logical variables but not character or factor variables.
 
-```{r}
+
+
+```{r warning = FALSE, message = FALSE, results = "hide"}
 
 as.numeric(pull(prob1_df, samp))
 as.numeric(pull(prob1_df, samp_gt_0)) 
@@ -58,7 +63,6 @@ data("penguins", package = "palmerpenguins")
 ```
 
 This dataset includes the variables:
-
 --------
 *   Species
 *   Island
@@ -71,13 +75,14 @@ This dataset includes the variables:
 
 This data was collected between the years 2007 and 2009.
 
+
 The penguin with the longest bill length is a Gentoo penguin from Biscoe with a bill length of 59.6mm.
-The mean bill length for all of the penguins in the dataset is `r mean(pull(penguins, bill_length_mm, na.rm = TRUE)`mm. 
+The mean bill length for all of the penguins in the dataset is `r mean(pull(penguins, bill_length_mm), na.rm = TRUE)`mm with a standard deviation of `r sd(pull(penguins, bill_length_mm), na.rm = TRUE)`mm. 
  
-The penguin with the longest flipper length is a Gentoo penguin from Biscoe with a flipper length of 231mm. The mean flipper length for all of the penguins in the dataset is `r mean(pull(penguins, flipper_length_mm, na.rm = TRUE)`mm. 
+The penguin with the longest flipper length is a Gentoo penguin from Biscoe with a flipper length of 231mm. The mean flipper length for all of the penguins in the dataset is `r mean(pull(penguins, flipper_length_mm), na.rm = TRUE)`mm with a standard deviation of `r sd(pull(penguins, flipper_length_mm), na.rm = TRUE)`mm.
+ 
 
-The largest penguin is a Gentoo penguin from Biscoe with a mass of 6300g. The mean mass for all penguins in the dataset is `r mean(penguins$body_mass_g, na.rm = TRUE)`g with a standard devation of `r sd(penguins$body_mass_g, na.rm = TRUE)`g.
-
+The largest penguin in the dataset is a Gentoo penguin from Biscoe with a mass of 6300g. The mean mass for all penguins in the dataset is `r mean(pull(penguins, body_mass_g), na.rm = TRUE)`g with a standard deviation of `r sd(pull(penguins, body_mass_g), na.rm = TRUE)`g.
 
 
 The code chunk below generates a plot comparing the bill and flipper lengths of the penguins in the dataset color coded by species:
