@@ -8,15 +8,57 @@ output: github_document
 
 This is my submission for the first homework assignment for P8105. 
 
+```{r message = FALSE, echo = FALSE}
+
+library(tidyverse)
+library(ggplot2)
+```
+
+# Problem 1
+```{r dataframe creation}
+prob1_df = tibble(
+  samp = rnorm(10),
+  samp_gt_0 = samp > 0,
+  char_vec = c("A", "B", "C", "D", "E", "F", "G", "H", "I", "J"),
+  factor_vec = factor(c("low", "low", "low", "mod", "mod", "mod", "mod", "high", "high", "high"))
+)
+```
+
+Take the mean of each variable in my data frame.
+
+```{r mean pull}
+mean(pull(prob1_df, samp))
+mean(pull(prob1_df, samp_gt_0)) 
+mean(pull(prob1_df, char_vec))
+mean(pull(prob1_df, factor_vec))
+```
+
+I can take the mean of numbers and logical but not character or factor.
+
+```{r}
+
+as.numeric(pull(prob1_df, samp))
+as.numeric(pull(prob1_df, samp_gt_0)) 
+as.numeric(pull(prob1_df, char_vec))
+as.numeric(pull(prob1_df, factor_vec))
+```
+
+```{r}
+
+as.numeric(pull(prob1_df, samp))*pull(prob1_df, samp_gt_0) 
+```
+
 # Problem 2
 
 The following code loads the _"penguins"_ dataset:
 
 ```{r}
 data("penguins", package = "palmerpenguins")
+
 ```
 
 This dataset includes the variables:
+
 --------
 *   Species
 *   Island
@@ -27,21 +69,19 @@ This dataset includes the variables:
 *   Sex
 *   Year
 
-The penguin with the longest bill length is a Gentoo penguin from Biscoe with a bill length of 59.6mm.
-The mean bill length for all of the penguins in the dataset is `r mean(penguins$bill_length_mm, na.rm = TRUE)`mm. The median bill length for all of the penguins in the dataset is `r median(penguins$bill_length_mm, na.rm = TRUE)`mm.
- 
-The penguin with the longest flipper length is a Gentoo penguin from Biscoe with a flipper length of 231mm. The mean flipper length for all of the penguins in the dataset is `r mean(penguins$flipper_length_mm, na.rm = TRUE)`mm. The median flipper length for all of the penguins in the dataset is `r median(penguins$flipper_length_mm, na.rm = TRUE)`mm.
+This data was collected between the years 2007 and 2009.
 
-The largest penguin is a Gentoo penguin from Biscoe with a mass of 6300g. The mean mass for all penguins in the dataset is `r mean(penguins$body_mass_g, na.rm = TRUE)`g. The median mass for all penguins in the dataset is `r mean(penguins$body_mass_g, na.rm = TRUE)`g.
+The penguin with the longest bill length is a Gentoo penguin from Biscoe with a bill length of 59.6mm.
+The mean bill length for all of the penguins in the dataset is `r mean(pull(penguins, bill_length_mm, na.rm = TRUE)`mm. 
+ 
+The penguin with the longest flipper length is a Gentoo penguin from Biscoe with a flipper length of 231mm. The mean flipper length for all of the penguins in the dataset is `r mean(pull(penguins, flipper_length_mm, na.rm = TRUE)`mm. 
+
+The largest penguin is a Gentoo penguin from Biscoe with a mass of 6300g. The mean mass for all penguins in the dataset is `r mean(penguins$body_mass_g, na.rm = TRUE)`g with a standard devation of `r sd(penguins$body_mass_g, na.rm = TRUE)`g.
 
 
 
 The code chunk below generates a plot comparing the bill and flipper lengths of the penguins in the dataset color coded by species:
 
-```{r message = FALSE, echo = FALSE}
-library(tidyverse
-        )
-```
 
 ```{r warning = FALSE, message = FALSE}
 ggplot(data = penguins,
