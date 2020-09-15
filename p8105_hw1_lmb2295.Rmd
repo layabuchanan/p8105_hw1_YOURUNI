@@ -27,6 +27,8 @@ prob1_df = tibble(
 ```
 
 
+
+
 This code takes the mean of each variable in my data frame.
 
 ```{r warning = FALSE, message = FALSE}
@@ -36,10 +38,12 @@ mean(pull(prob1_df, char_vec))
 mean(pull(prob1_df, factor_vec))
 ```
 
-I can take the mean of numeric and logical variables but not character or factor variables.
+The code and results above demonstrate that I can take the mean of numeric and logical variables but not character or factor variables.
 
 
 
+
+The code below converts the variables above to be numeric.
 ```{r warning = FALSE, message = FALSE, results = "hide"}
 
 as.numeric(pull(prob1_df, samp))
@@ -47,11 +51,31 @@ as.numeric(pull(prob1_df, samp_gt_0))
 as.numeric(pull(prob1_df, char_vec))
 as.numeric(pull(prob1_df, factor_vec))
 ```
+I am able to convert all of the variables types to numeric, expect for the character vector variable.
+
+This code converts the logical vector to numeric, and multiplies the random sample by the result.
 
 ```{r}
-
-as.numeric(pull(prob1_df, samp))*pull(prob1_df, samp_gt_0) 
+as.numeric(pull(prob1_df, samp_gt_0))*pull(prob1_df, samp) 
 ```
+
+
+
+The code below converts the logical vector to a factor, and multiplies the random sample by the result.
+```{r warning = FALSE, message = FALSE}
+as.factor(pull(prob1_df, samp_gt_0))*pull(prob1_df, samp) 
+```
+The result is not meaningful.
+
+
+
+The code below again converts the logical vector to a factor, and then converts the result to numeric, then and multiplies the random sample by the result.
+```{r warning = FALSE, message = FALSE}
+converted = as.factor(pull(prob1_df, samp_gt_0))*pull(prob1_df, samp) 
+as.numeric(converted)*pull(prob1_df, samp)
+```
+The result is not meaningful because the previous step was not meaningful.
+
 
 # Problem 2
 
