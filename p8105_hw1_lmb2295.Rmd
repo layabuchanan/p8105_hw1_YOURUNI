@@ -28,7 +28,11 @@ This dataset includes the variables:
 *   Year
 
 The penguin with the longest bill length is a Gentoo penguin from Biscoe with a bill length of 59.6mm.
-The mean bill length for all of the penguins in the dataset is `mean(penguins flipper_length_mm)`.
+The mean bill length for all of the penguins in the dataset is `r mean(penguins$bill_length_mm, na.rm = TRUE)`mm. The median bill length for all of the penguins in the dataset is `r median(penguins$bill_length_mm, na.rm = TRUE)`mm.
+ 
+The penguin with the longest flipper length is a Gentoo penguin from Biscoe with a flipper length of 231mm. The mean flipper length for all of the penguins in the dataset is `r mean(penguins$flipper_length_mm, na.rm = TRUE)`mm. The median flipper length for all of the penguins in the dataset is `r median(penguins$flipper_length_mm, na.rm = TRUE)`mm.
+
+The largest penguin is a Gentoo penguin from Biscoe with a mass of 6300g. The mean mass for all penguins in the dataset is `r mean(penguins$body_mass_g, na.rm = TRUE)`g. The median mass for all penguins in the dataset is `r mean(penguins$body_mass_g, na.rm = TRUE)`g.
 
 
 
