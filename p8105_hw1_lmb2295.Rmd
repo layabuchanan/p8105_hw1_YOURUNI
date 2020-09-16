@@ -106,7 +106,7 @@ The mean bill length for all of the penguins in the dataset is `r mean(pull(peng
 The penguin with the longest flipper length is a Gentoo penguin from Biscoe with a flipper length of 231mm. The mean flipper length for all of the penguins in the dataset is `r mean(pull(penguins, flipper_length_mm), na.rm = TRUE)`mm with a standard deviation of `r sd(pull(penguins, flipper_length_mm), na.rm = TRUE)`mm.
  
 
-The largest penguin in the dataset is a Gentoo penguin from Biscoe with a mass of 6300g. The mean mass for all penguins in the dataset is `r mean(pull(penguins, body_mass_g), na.rm = TRUE)`g with a standard deviation of `r sd(pull(penguins, body_mass_g), na.rm = TRUE)`g.
+The largest penguin in the dataset is a Gentoo penguin from Biscoe with a mass of 6300g. The smallest penguin is a Chinstrap from Dream with a mass of 2700g. The mean mass for all penguins in the dataset is `r mean(pull(penguins, body_mass_g), na.rm = TRUE)`g with a standard deviation of `r sd(pull(penguins, body_mass_g), na.rm = TRUE)`g.
 
 
 The code chunk below generates a plot comparing the bill and flipper lengths of the penguins in the dataset color coded by species:
